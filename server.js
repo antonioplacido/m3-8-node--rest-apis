@@ -52,34 +52,6 @@ express()
 
   //HANGMAN END POINTS
 
-  // ## Exercise 3 - Hangman!
-
-  // Let's build a Hangman Game!
-
-  // Obviously, this could all be done in the frontend, with vanilla JS, but where's the fun in that! Besides, we are not very trusting and keeping the
-  // entire game in the FE would allow users to cheat, if they knew enough JavaScript to find the answer in the `script`s.
-
-  // ### Guidelines
-
-  // You will divide your concerns in two: the frontend, and the backend. Start with the backend. Only move on to the fronted once you have a fully functional API.
-
-  // #### Backend
-
-  // - There is a data file called `words.js` that should contain an array of words. Add more words to this file --at least 10. Each word should follow this format.
-
-  // ```js
-  // {
-  //   id: '123',
-  //   word: 'bacon',
-  //   letterCount: '5'
-  // }
-  // ```
-
-  // - Create an API that contains these endpoints.
-  //   - A `/hangman/word/:id` endpoint can also accept an `id` in its url.
-  // If it's provided, it will return the word object, as it is in the array of words. _
-  // This is ONLY for testing purposes._ **Do not use this endpoint in the Frontend.** done
-
   //   - `GET /hangman/word` This will return an object that contains
   // - the `id` of a random word selected from an array of words - the `letterCount` of the word.
   // **It should NOT contain the actual word!**
@@ -104,7 +76,7 @@ express()
 
   .get("/hangman/word/:id", targetleWord)
 
-  .get("hangman/word", guessWord)
+  .get("/hangman/word", guessWord)
 
   .get("/*", handle404)
 
