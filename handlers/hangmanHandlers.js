@@ -24,7 +24,7 @@ function guessWord(req, res) {
 function guessLetter(req, res) {
   let wordGuessArray = [];
   const currentWordId = req.params.id;
-  const guessedLetter = req.params.letter;
+  const guessedLetter = req.params.letter; //note to self, save yourself 3 hours and remember that /letter = your endpoint...
 
   console.log(currentWordId);
   console.log(guessedLetter);
