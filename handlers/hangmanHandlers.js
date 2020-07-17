@@ -14,11 +14,32 @@ function targetleWord(req, res) {
 }
 
 function guessWord(req, res) {
-  const wordInPlayID = Math.ceil(Math.random() * 6) * 1000;
+  let wordInPlayID = Math.ceil(Math.random() * 6) * 1000;
   const wordInPlay = verifyWord(wordInPlayID);
   delete wordInPlay.word;
   res.status(200).json({ status: 200, wordInPlay });
   console.log(wordInPlay);
 }
 
-module.exports = { targetleWord, guessWord };
+function guessLetter(req, res) {
+  let wordGuessArray = [];
+  const currentWordId = req.params.id;
+  const guessedLetter = req.params.letter;
+
+  console.log(currentWordId);
+  console.log(guessedLetter);
+  const gameWord = verifyWord(currentWordId).word;
+
+  console.log(gameWord);
+
+  for (i = 0; i < gameWord.length; i++) {
+    if (gameWord[i] === guessedLetter) {
+      wordGuessArray[i] = true;
+    } else {
+      wordGuessArray[i] = false;
+    }
+  }
+  res.status(200).json(wordGuessArray);
+}
+
+module.exports = { targetleWord, guessWord, guessLetter };
