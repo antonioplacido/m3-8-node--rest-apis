@@ -14,7 +14,7 @@ function targetleWord(req, res) {
 }
 
 function guessWord(req, res) {
-  let wordInPlayID = Math.ceil(Math.random() * 6) * 1000;
+  let wordInPlayID = Math.ceil(Math.random() * 10) * 1000;
   const wordInPlay = verifyWord(wordInPlayID);
   delete wordInPlay.word;
   res.status(200).json({ status: 200, wordInPlay });

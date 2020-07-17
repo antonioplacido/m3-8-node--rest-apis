@@ -6,27 +6,47 @@ const words = [
   },
   {
     id: "2000",
-    word: "Engine",
+    word: "engine",
     letterCount: "6",
   },
   {
     id: "3000",
-    word: "Aristocrat",
+    word: "aristocrat",
     letterCount: "10",
   },
   {
     id: "4000",
-    word: "Reanimate",
+    word: "reanimate",
     letterCount: "9",
   },
   {
     id: "5000",
-    word: "Slinger",
+    word: "slinger",
     letterCount: "7",
   },
   {
     id: "6000",
-    word: "Consultation",
+    word: "consultation",
+    letterCount: "12",
+  },
+  {
+    id: "7000",
+    word: "operation",
+    letterCount: "9",
+  },
+  {
+    id: "8000",
+    word: "flames",
+    letterCount: "6",
+  },
+  {
+    id: "9000",
+    word: "stratocaster",
+    letterCount: "12",
+  },
+  {
+    id: "10000",
+    word: "stratovarius",
     letterCount: "12",
   },
 ];
