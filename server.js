@@ -10,7 +10,7 @@ const {
   addClient,
   delClient,
 } = require("./handlers/clientHandlers");
-const { targetleWord, wordsList } = require("./handlers/hangmanHandlers");
+const { targetleWord, guessWord } = require("./handlers/hangmanHandlers");
 
 express()
   .use(function (req, res, next) {
@@ -52,10 +52,6 @@ express()
 
   //HANGMAN END POINTS
 
-  .get(`/hangman/word/:id`, targetleWord)
-
-  .get("hangman/word", wordsList)
-
   // ## Exercise 3 - Hangman!
 
   // Let's build a Hangman Game!
@@ -82,16 +78,18 @@ express()
   // - Create an API that contains these endpoints.
   //   - A `/hangman/word/:id` endpoint can also accept an `id` in its url.
   // If it's provided, it will return the word object, as it is in the array of words. _
-  // This is ONLY for testing purposes._ **Do not use this endpoint in the Frontend.**
+  // This is ONLY for testing purposes._ **Do not use this endpoint in the Frontend.** done
+
   //   - `GET /hangman/word` This will return an object that contains
   // - the `id` of a random word selected from an array of words - the `letterCount` of the word.
   // **It should NOT contain the actual word!**
+
   //   - `GET /hangman/guess/:id/:letter` This will return the appropriate status code.
   //   - If the letter guessed is in the word, return an array of booleans that map the
   // letter's position in the word. This will be processed by the FE.
 
-  // For example, if the server receives this request `/hangman/guess/123/o`, 
-  it should respond with a status `200` and an array `[false, false, false, true, false]`. this means that the letter 'o' is located in the fourth position in the word.
+  // For example, if the server receives this request `/hangman/guess/123/o`,
+  // it should respond with a status `200` and an array `[false, false, false, true, false]`. this means that the letter 'o' is located in the fourth position in the word.
 
   // ```
   // __ __ __ O __
@@ -103,6 +101,10 @@ express()
   // - Grab pen and paper and test it out!
 
   // ---
+
+  .get("/hangman/word/:id", targetleWord)
+
+  .get("hangman/word", guessWord)
 
   .get("/*", handle404)
 
