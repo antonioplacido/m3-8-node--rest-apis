@@ -7,6 +7,7 @@ const {
   handle404,
   clientList,
   targetClient,
+  addClient,
 } = require("./handlers/clientHandlers");
 
 express()
@@ -29,6 +30,8 @@ express()
 
   .get("/clients", clientList)
 
+  .post("/clients", addClient)
+
   .get("/*", handle404)
 
   .listen(8000, () => console.log(`Listening on port 8000`));
@@ -42,7 +45,7 @@ express()
 // - An endpoint to access a list of all the clients.
 // - An endpoint to access one client based on its `id`.
 // - An endpoint to add a new client.
-//   - a detailed validation of the data is not really required, but you can verify that the email is new.
+// - a detailed validation of the data is not really required, but you can verify that the email is new.
 // - An endpoint to delete a customer based on its `id`.
 
 // Use Insomnia to test out these endpoints.

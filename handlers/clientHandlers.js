@@ -3,8 +3,26 @@ const { clients } = require("../data/clients");
 
 // write your handlers here...
 
+function validateEmail(email) {
+  return clients.find((client) => client.email == email);
+}
+
 function searchClient(id) {
   return clients.find((client) => client.id == id);
+}
+
+function addClient(req, res) {
+  const clientEmail = req.body.email;
+  const client = validateEmail(clientEmail);
+  const newClient = req.body;
+  if (client) {
+    res.status(400).json({
+      message: "That email is already registered",
+    });
+  } else {
+    clients.push(newClient);
+    res.status(200).send("Add successful");
+  }
 }
 
 function targetClient(req, res, next) {
@@ -28,4 +46,4 @@ function handle404(req, res) {
     .json({ status: 404, message: "It's not a good thing if you see this" });
 }
 
-module.exports = { handle404, clientList, targetClient };
+module.exports = { handle404, clientList, targetClient, addClient };
