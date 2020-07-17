@@ -25,6 +25,22 @@ function addClient(req, res) {
   }
 }
 
+//Deleting Client//
+
+function delClient(req, res) {
+  const clientEmail = req.body.email;
+  const client = validateEmail(clientEmail);
+  const newClient = req.body;
+  if (client) {
+    clients.splice(newClient, 1);
+    res.status(200).json({
+      message: "Email Deleted",
+    });
+  } else {
+    res.status(400).send("That email isn't registered");
+  }
+}
+
 function targetClient(req, res, next) {
   const clientId = req.params.id;
   const client = searchClient(clientId);
@@ -46,4 +62,4 @@ function handle404(req, res) {
     .json({ status: 404, message: "It's not a good thing if you see this" });
 }
 
-module.exports = { handle404, clientList, targetClient, addClient };
+module.exports = { handle404, clientList, targetClient, addClient, delClient };

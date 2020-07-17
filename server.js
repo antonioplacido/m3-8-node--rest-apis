@@ -8,6 +8,7 @@ const {
   clientList,
   targetClient,
   addClient,
+  delClient,
 } = require("./handlers/clientHandlers");
 
 express()
@@ -33,6 +34,8 @@ express()
   .post("/clients", addClient)
 
   .get("/*", handle404)
+
+  .delete("/clients", delClient)
 
   .listen(8000, () => console.log(`Listening on port 8000`));
 
