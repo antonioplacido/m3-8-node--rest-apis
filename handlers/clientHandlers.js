@@ -7,10 +7,6 @@ function validateEmail(email) {
   return clients.find((client) => client.email == email);
 }
 
-function searchClient(id) {
-  return clients.find((client) => client.id == id);
-}
-
 function addClient(req, res) {
   const clientEmail = req.body.email;
   const client = validateEmail(clientEmail);
@@ -39,6 +35,10 @@ function delClient(req, res) {
   } else {
     res.status(400).send("That email isn't registered");
   }
+}
+
+function searchClient(id) {
+  return clients.find((client) => client.id == id);
 }
 
 function targetClient(req, res, next) {
